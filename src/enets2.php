@@ -1,7 +1,5 @@
 <?php
 
-//namespace Enets2;
-
 class Enets2
 {
     protected $environment = "TEST"; // set to "LIVE" for live setup
