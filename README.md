@@ -147,4 +147,4 @@ Use those method to get the response data from backend notification and return a
 
 ## RELEASE NOTES
 
-*V0.1. run() method can support only submission mode B, and query() method has not yet been fully tested and may not function properly in this release.
+*V0.1. run() method can support only submission mode B, and query() method has not yet been fully tested and may not function properly in this release.*
