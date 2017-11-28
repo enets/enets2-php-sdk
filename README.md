@@ -144,3 +144,7 @@ Use those method to get the response data from redirection and return an array, 
 
 *getBackendResponse()*
 Use those method to get the response data from backend notification and return an array, containing the processing result, for further processing.
+
+## RELEASE NOTES
+
+*V0.1. run() method can support only submission mode B, and query() method has not yet been fully tested and may not function properly in this release.
