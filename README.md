@@ -134,10 +134,10 @@ Use this method to convert raw reqest in array format to a json format.
 Use this method to calculate HMAC from a json-formatted payload.
 
 *query()*
-Use this method to perform query to NETS system. 
+Use this method to perform query to NETS system.
 
 *run()*
-Use this method to execute te script required to send transaction request to NETS system. Note that it is currently supported only submission mode B (Browser to Server).
+Use this method to execute te script required to send transaction request to NETS system. 
 
 *getFrontendResponse()*
 Use those method to get the response data from redirection and return an array, containing the processing result, for further processing.
