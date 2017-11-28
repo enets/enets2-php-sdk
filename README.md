@@ -28,10 +28,10 @@ Use this method to set currency according to ISO 4217 Alphabetic Code format. De
 Use this method to set the amount you would like to charge. The float value is expected (eg. 15.80).
 
 *setMerchantReference($value)*
-Use this method to set the reference data that can be associated back to your own transaction record. Must be a unique value for each transaction.
+Use this method to set the reference value that can be associated back to your own transaction record. Must be a unique value for each transaction, and used as reference value for transaction query purpose.
 
 *setReturnUrl($value)*
-Use this method to set return URL, which is the URL where your customer will be redirected to, upon completion of a transaction, regardless whether the transaction is successful or fail.
+Use this method to set return URL, which is the URL where the customer will be redirected to, upon completion of a transaction, regardless whether the transaction is successful or fail.
 
 *setReturnUrlParam($value)*
 Use this method to pass parameter to your return URL. The value will be echo back in the response.
@@ -91,3 +91,56 @@ Use this method to set Authentication Status if own MPI is used for 3D Secure tr
 Use this method to set the development environment, whether TEST environment or LIVE environment.
 
 **The following methods are available to get data for further processing upon receiving response from NETS system.**
+
+*getNetsReference()*
+Use this method to get the reference data returned by NETS.
+
+*getNetsStatus()*
+Use this method to get the status of transaction.
+
+*getNetsMessage()*
+Use this method to get the description of the transaction status.
+
+*getAuthorizationDate()*
+Use this method to get the authorization date and time of a transaction.
+
+*getAuthorizationAmount()*
+Use this method to get the authorization amount deducted from the customer.
+
+*getAuthorizationCode()*
+Use this method to get the authorization code deducted from the customer. Only available for Credit Card transaction.
+
+*getStageResponseCode()*
+Use this method to get Stage Response from NETS. List of possible Stage Responses are available in NETS Developer Portal.
+
+*getTransactionRandom()*
+Use this method to get Transaction Random.
+
+*getActionCode()*
+Use this method to get action code of the transaction.
+
+**The following methods are used to perform action required to make a transaction request or to handle a transaction response.*
+
+*getTransactionRequest()*
+Use this method to get the raw transaction request in array format.
+
+*getQueryRequest()*
+Use this method to get the raw query request in array format.
+
+*getPayload($request)*
+Use this method to convert raw reqest in array format to a json format.
+
+*getHmac($request_payload)*
+Use this method to calculate HMAC from a json-formatted payload.
+
+*query()*
+Use this method to perform query to NETS system. 
+
+*run()*
+Use this method to execute te script required to send transaction request to NETS system. Note that it is currently supported only submission mode B (Browser to Server).
+
+*getFrontendResponse()*
+Use those method to get the response data from redirection and return an array, containing the processing result, for further processing.
+
+*getBackendResponse()*
+Use those method to get the response data from backend notification and return an array, containing the processing result, for further processing.
