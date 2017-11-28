@@ -5,6 +5,10 @@ This SDK for PHP is intended to assist you in your PHP project to integrate with
 
 The content of this API Library may only be used in connection with the services of NETS's eNETS product offering. Unless required by applicable law or agreed to in writing, the library is offered and/or distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. NETS does not warrant that the library or any content will be available uninterrupted or error free, that defects will be corrected, or that the library or its supporting systems are free of viruses or bugs.
 
+## COMPATIBILITY
+
+This API library is tested to work properly on PHP 5.6 and above. 
+
 ## METHODS
 
 **The folowing methods are available to set the variable that are needed to submit a transaction request to ENETS.**
@@ -119,7 +123,7 @@ Use this method to get Transaction Random.
 *getActionCode()*
 Use this method to get action code of the transaction.
 
-**The following methods are used to perform action required to make a transaction request or to handle a transaction response.*
+**The following methods are used to perform action required to make a transaction request or to handle a transaction response.**
 
 *getTransactionRequest()*
 Use this method to get the raw transaction request in array format.
