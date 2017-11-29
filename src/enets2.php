@@ -772,6 +772,7 @@ class Enets2
     public function query()
     {
         $data_string = $this->getPayload($this->getQueryRequest());
+        $hmac = $this->getHmac($data_string);
         $ch = curl_init($this->getQueryUrl());
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
@@ -783,7 +784,7 @@ class Enets2
             'Content-Type: application/json',
             'Content-Length: ' . strlen($data_string),
             'keyId: ' . $this->key_id,
-            'hmac: ' . $this->getHmac($this->getPayload($this->getQueryRequest())))
+            'hmac: ' . $hmac)
         );
         $result = curl_exec($ch);
         //var_dump(curl_error($ch));
@@ -795,14 +796,15 @@ class Enets2
     {
         if (strcasecmp($this->submission_mode,"B") == 0) {
             // if submission is from browser, generate and submit the HTML form
+            $payload = $this->getPayload($this->getTransactionRequest());
+            $hmac = $this->getHmac($payload);
             $htmlform = "
-
                 <form>
                 <input type='hidden' id='txnReq' name='txnReq' 
-                    value='".$this->getPayload($this->getTransactionRequest())."'>
+                    value='".$payload."'>
                 <input type='hidden' id='keyId' name='keyId' value='".$this->key_id."'>
                 <input type='hidden' id='hmac' name='hmac' 
-                    value='".$this->getHmac($this->getPayload($this->getTransactionRequest()))."'>
+                    value='".$hmac."'>
                 </form>
                 <div id='anotherSection'>
                 <fieldset> 
