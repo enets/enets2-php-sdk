@@ -786,10 +786,43 @@ class Enets2
             'keyId: ' . $this->key_id,
             'hmac: ' . $hmac)
         );
-        $result = curl_exec($ch);
+        $payload = curl_exec($ch);
         //var_dump(curl_error($ch));
         //var_dump(curl_getinfo($ch));
-        return $result;
+        $payload_array = json_decode($payload,true);
+        if (is_array($payload_array["msg"])) {
+            $response = $payload_array["msg"];
+            if (isset($response["netsTxnRef"])) {
+                $this->nets_reference = $response["netsTxnRef"];
+            }
+            if (isset($response["netsTxnStatus"])) {
+                $this->nets_status = $response["netsTxnStatus"];
+            }
+            if (isset($response["netsTxnMsg"])) {
+                $this->nets_message = $response["netsTxnMsg"];
+            }
+            if (isset($response["netsTxnDtm"])) {
+                $this->authorization_date = $response["netsTxnDtm"];
+            }
+            if (isset($response["netsAmountDeducted"])) {
+                $this->authorization_amount = $response["netsAmountDeducted"] / 100;
+            }
+            if (isset($response["bankAuthId"])) {
+                $this->authorization_code = $response["bankAuthId"];
+            }
+            if (isset($response["stageRespCode"])) {
+                $this->stage_response_code = $response["stageRespCode"];
+            }
+            if (isset($response["txnRand"])) {
+                $this->transaction_random = $response["txnRand"];
+            }
+            if (isset($response["actionCode"])) {
+                $this->action_code = $response["actionCode"];
+            }
+            return $response;
+        } else {
+            return false;
+        }
     }
 
     public function run()
