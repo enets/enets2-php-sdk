@@ -1,7 +1,6 @@
 <?php
 
-if (isset($_POST["refno"]))
-{
+if (isset($_POST["refno"])) {
     require "enets2.php";
     $refno = $_POST["refno"];
     $enets = new Enets2;
@@ -19,7 +18,7 @@ if (isset($_POST["refno"]))
         echo $e->getMessage();
     }
 } else {
-	  $refno="";
+    $refno="";
 }
 
 echo "<form action=query.php method=POST>";
