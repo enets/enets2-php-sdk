@@ -898,7 +898,7 @@ class Enets2
         } else {
             throw new Exception("Missing Message in response");
         }
-        if (is_array($payload["msg"])) {
+        if (!empty($payload["msg"])) {
             $response = $payload["msg"];
             if (isset($response["netsTxnRef"])) {
                 $this->nets_reference = $response["netsTxnRef"];
@@ -929,6 +929,7 @@ class Enets2
             }
             return $response;
         } else {
+            throw new Exception("Missing MSG element in response. Raw message received: ".$message);
             return false;
         }
     }
@@ -958,7 +959,7 @@ class Enets2
         } else {
             throw new Exception("Missing Message in response");
         }
-        if (is_array($payload["msg"])) {
+        if (!empty($payload["msg"])) {
             $response = $payload["msg"];
             if (isset($response["netsTxnRef"])) {
                 $this->nets_reference = $response["netsTxnRef"];
@@ -989,6 +990,7 @@ class Enets2
             }
             return $response;
         } else {
+            throw new Exception("Missing MSG element in response. Raw message received: ".$message);
             return false;
         }
     }
