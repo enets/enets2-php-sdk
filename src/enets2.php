@@ -1,4 +1,5 @@
 <?php
+namespace Nets;
 
 class Enets2
 {
