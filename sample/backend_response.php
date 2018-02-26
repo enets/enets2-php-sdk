@@ -1,6 +1,8 @@
 <?php
+require_once __DIR__ . '/../vendor/autoload.php';
 
-require "enets2.php";
+use Nets\Enets2;
+
 $enets = new Enets2;
 
 $file = fopen("log.txt","a+");
