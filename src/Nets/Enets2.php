@@ -826,7 +826,11 @@ class Enets2
         }
     }
 
-    public function run()
+    /**
+     * @param boolean $output
+     * @return mixed
+     */
+    public function run($output = true)
     {
         if (strcasecmp($this->submission_mode,"B") == 0) {
             // if submission is from browser, generate and submit the HTML form
@@ -858,7 +862,12 @@ class Enets2
             ";
             $result["type"] = "HTML";
             $result["response"] = $this->getInitScript().$htmlform;
-            echo $result["response"];
+
+            if ($output === true) {
+                echo $result["response"];
+            } else {
+                return $result["response"];
+            }
         } else {
             // curl to server to authorize
             // this is for server to server handling
