@@ -1,4 +1,5 @@
 <?php
+namespace Nets;
 
 class Enets2
 {
@@ -156,7 +157,7 @@ class Enets2
             $this->umid = $value;
             return true;
         } else {
-            throw new Exception("Invalid UMID");
+            throw new \Exception("Invalid UMID");
         }
     }
 
@@ -166,7 +167,7 @@ class Enets2
             $this->tid = $value;
             return true;
         } else {
-            throw new Exception("Invalid TID");
+            throw new \Exception("Invalid TID");
         }
     }
 
@@ -176,7 +177,7 @@ class Enets2
             $this->secret_key = $value;
             return true;
         } else {
-            throw new Exception("Invalid Secret Key");
+            throw new \Exception("Invalid Secret Key");
         }
     }
 
@@ -186,7 +187,7 @@ class Enets2
             $this->key_id = $value;
             return true;
         } else {
-            throw new Exception("Invalid Key ID");
+            throw new \Exception("Invalid Key ID");
         }
     }
 
@@ -196,7 +197,7 @@ class Enets2
             $this->currency = strtoupper($value);
             return true;
         } else {
-            throw new Exception("Invalid Currency");
+            throw new \Exception("Invalid Currency");
         }
     }
 
@@ -208,10 +209,10 @@ class Enets2
                 $this->amount = floor($value * 100);
                 return true;
             } else {
-                throw new Exception("Invalid Amount Format");
+                throw new \Exception("Invalid Amount Format");
             }
         } else {
-            throw new Exception("Invalid Amount Value");
+            throw new \Exception("Invalid Amount Value");
         }
     }
 
@@ -222,10 +223,10 @@ class Enets2
                 $this->merchant_reference = $value;
                 return true;
             } else {
-                throw new Exception("Merchant Reference length cannot exceed 20 characters");
+                throw new \Exception("Merchant Reference length cannot exceed 20 characters");
             }
         } else {
-            throw new Exception("Invalid Merchant Reference");
+            throw new \Exception("Invalid Merchant Reference");
         }
     }
 
@@ -233,16 +234,16 @@ class Enets2
     {
         if (isset($value)) {
             if (filter_var($value, FILTER_VALIDATE_URL) === false) {
-                throw new Exception("Invalid Return URL format");
+                throw new \Exception("Invalid Return URL format");
             }
             if (strlen($value) <= 80) {
                 $this->return_url = $value;
                 return true;
             } else {
-                throw new Exception("Return URL length cannot exceed 80 characters");
+                throw new \Exception("Return URL length cannot exceed 80 characters");
             }
         } else {
-            throw new Exception("Invalid Return URL");
+            throw new \Exception("Invalid Return URL");
         }
     }
 
@@ -253,10 +254,10 @@ class Enets2
                 $this->return_url_param = $value;
                 return true;
             } else {
-                throw new Exception("Return URL Parameter length cannot exceed 20 characters");
+                throw new \Exception("Return URL Parameter length cannot exceed 20 characters");
             }
         } else {
-            throw new Exception("Invalid Return URL Parameter");
+            throw new \Exception("Invalid Return URL Parameter");
         }
     }
 
@@ -264,16 +265,16 @@ class Enets2
     {
         if (isset($value)) {
             if (filter_var($value, FILTER_VALIDATE_URL) === false) {
-                throw new Exception("Invalid Notify URL format");
+                throw new \Exception("Invalid Notify URL format");
             }
             if (strlen($value) <= 80) {
                 $this->notify_url = $value;
                 return true;
             } else {
-                throw new Exception("Notify URL length cannot exceed 80 characters");
+                throw new \Exception("Notify URL length cannot exceed 80 characters");
             }
         } else {
-            throw new Exception("Invalid Notify URL");
+            throw new \Exception("Invalid Notify URL");
         }
     }
 
@@ -284,10 +285,10 @@ class Enets2
                 $this->notify_url_param = $value;
                 return true;
             } else {
-                throw new Exception("Notify URL Parameter length cannot exceed 20 characters");
+                throw new \Exception("Notify URL Parameter length cannot exceed 20 characters");
             }
         } else {
-            throw new Exception("Invalid Notify URL Parameter");
+            throw new \Exception("Invalid Notify URL Parameter");
         }
     }
 
@@ -298,10 +299,10 @@ class Enets2
                 $this->submission_mode = strtoupper($value);
                 return true;
             } else {
-                throw new Exception("Expected Value: 'B' or 'S'");
+                throw new \Exception("Expected Value: 'B' or 'S'");
             }
         } else {
-            throw new Exception("Invalid Submission Mode");
+            throw new \Exception("Invalid Submission Mode");
         }
     }
 
@@ -315,10 +316,10 @@ class Enets2
                 $this->payment_type = strtoupper($value);
                 return true;
             } else {
-                throw new Exception("Expected Value: 'SALE', 'AUTH', 'CAPT', 'CRED', 'RSALE', 'RAUTH', or 'RCRED'");
+                throw new \Exception("Expected Value: 'SALE', 'AUTH', 'CAPT', 'CRED', 'RSALE', 'RAUTH', or 'RCRED'");
             }
         } else {
-            throw new Exception("Invalid Payment Type");
+            throw new \Exception("Invalid Payment Type");
         }
     }
 
@@ -330,10 +331,10 @@ class Enets2
                 $this->payment_mode = strtoupper($value);
                 return true;
             } else {
-                throw new Exception("Expected Value: 'CC', 'DD', 'QR', or ''");
+                throw new \Exception("Expected Value: 'CC', 'DD', 'QR', or ''");
             }
         } else {
-            throw new Exception("Invalid Payment Mode");
+            throw new \Exception("Invalid Payment Mode");
         }
     }
 
@@ -345,10 +346,10 @@ class Enets2
                 $this->client_type = strtoupper($value);
                 return true;
             } else {
-                throw new Exception("Expected Value: 'W', 'S', or 'M'");
+                throw new \Exception("Expected Value: 'W', 'S', or 'M'");
             }
         } else {
-            throw new Exception("Invalid Client Type");
+            throw new \Exception("Invalid Client Type");
         }
     }
 
@@ -359,10 +360,10 @@ class Enets2
                 $this->mobile_os = strtoupper($value);
                 return true;
             } else {
-                throw new Exception("Expected Value: 'ANDROID', or 'IOS'");
+                throw new \Exception("Expected Value: 'ANDROID', or 'IOS'");
             }
         } else {
-            throw new Exception("Invalid Mobile OS");
+            throw new \Exception("Invalid Mobile OS");
         }
     }
 
@@ -373,10 +374,10 @@ class Enets2
                 $this->language = strtolower($value);
                 return true;
             } else {
-                throw new Exception("Expected Value: 'en', or 'zh_cn'");
+                throw new \Exception("Expected Value: 'en', or 'zh_cn'");
             }
         } else {
-            throw new Exception("Invalid Language");
+            throw new \Exception("Invalid Language");
         }
     }
 
@@ -384,12 +385,12 @@ class Enets2
     {
         if (isset($value)) {
             if (filter_var($value, FILTER_VALIDATE_IP) === false) {
-                throw new Exception("Invalid IP Address format");
+                throw new \Exception("Invalid IP Address format");
             }
             $this->ip_address = $value;
             return true;
         } else {
-            throw new Exception("Invalid IP Address");
+            throw new \Exception("Invalid IP Address");
         }
     }
 
@@ -400,10 +401,10 @@ class Enets2
                 $this->cardholder_name = $value;
                 return true;
             } else {
-                throw new Exception("Cardholder Name length cannot exceed 255 characters");
+                throw new \Exception("Cardholder Name length cannot exceed 255 characters");
             }
         } else {
-            throw new Exception("Invalid Cardholder Name");
+            throw new \Exception("Invalid Cardholder Name");
         }
     }
 
@@ -412,20 +413,20 @@ class Enets2
         if (isset($value)) {
             if ($checkluhn) {
                 if (!$this->checkLuhn($value)) {
-                    throw new Exception("PAN failed Luhn check test");
+                    throw new \Exception("PAN failed Luhn check test");
                 }
             }
             if (strlen($value) <= 19) {
                 if (!is_numeric($value)) {
-                    throw new Exception("Invalid PAN format");
+                    throw new \Exception("Invalid PAN format");
                 }
                 $this->pan = $value;
                 return true;
             } else {
-                throw new Exception("PAN length cannot exceed 19 characters");
+                throw new \Exception("PAN length cannot exceed 19 characters");
             }
         } else {
-            throw new Exception("Invalid PAN");
+            throw new \Exception("Invalid PAN");
         }
     }
 
@@ -434,18 +435,18 @@ class Enets2
         if (isset($value)) {
             if (strlen($value) == 4) {
                 if (!is_numeric($value)) {
-                    throw new Exception("Invalid Expiry Date format");
+                    throw new \Exception("Invalid Expiry Date format");
                 }
                 if ($checkexpiry && $this->isExpired($value)) {
-                    throw new Exception("Expiry Date must be greater or equal then current date");
+                    throw new \Exception("Expiry Date must be greater or equal then current date");
                 }
                 $this->expiry_date = $value;
                 return true;
             } else {
-                throw new Exception("Expiry Date length must be 4 characters");
+                throw new \Exception("Expiry Date length must be 4 characters");
             }
         } else {
-            throw new Exception("Invalid Expiry Date");
+            throw new \Exception("Invalid Expiry Date");
         }
     }
 
@@ -456,10 +457,10 @@ class Enets2
                 $this->cvv = $value;
                 return true;
             } else {
-                throw new Exception("CVV length cannot exceed 4 characters");
+                throw new \Exception("CVV length cannot exceed 4 characters");
             }
         } else {
-            throw new Exception("Invalid CVV");
+            throw new \Exception("Invalid CVV");
         }
     }
 
@@ -470,10 +471,10 @@ class Enets2
                 $this->xid = $value;
                 return true;
             } else {
-                throw new Exception("XID length cannot exceed 4 characters");
+                throw new \Exception("XID length cannot exceed 4 characters");
             }
         } else {
-            throw new Exception("Invalid XID");
+            throw new \Exception("Invalid XID");
         }
     }
 
@@ -484,10 +485,10 @@ class Enets2
                 $this->cavv = $value;
                 return true;
             } else {
-                throw new Exception("CAVV length cannot exceed 4 characters");
+                throw new \Exception("CAVV length cannot exceed 4 characters");
             }
         } else {
-            throw new Exception("Invalid CAVV");
+            throw new \Exception("Invalid CAVV");
         }
     }
 
@@ -500,11 +501,11 @@ class Enets2
                 $this->eci = $value;
                 return true;
             } else {
-                throw new Exception("Expected Value: '00', '01', '02' for Mastercard, 
+                throw new \Exception("Expected Value: '00', '01', '02' for Mastercard, 
                     '05', '06', '07' for Visa/Amex/JCB");
             }
         } else {
-            throw new Exception("Invalid ECI");
+            throw new \Exception("Invalid ECI");
         }
     }
 
@@ -516,10 +517,10 @@ class Enets2
                 $this->authentication_status = strtoupper($value);
                 return true;
             } else {
-                throw new Exception("Expected Value: 'Y', 'N', 'U', or 'A'");
+                throw new \Exception("Expected Value: 'Y', 'N', 'U', or 'A'");
             }
         } else {
-            throw new Exception("Invalid Authentication Status");
+            throw new \Exception("Invalid Authentication Status");
         }
     }
 
@@ -530,10 +531,10 @@ class Enets2
                 $this->environment = strtoupper($value);
                 return true;
             } else {
-                throw new Exception("Expected Value: 'TEST', or 'LIVE'");
+                throw new \Exception("Expected Value: 'TEST', or 'LIVE'");
             }
         } else {
-            throw new Exception("Invalid Environment");
+            throw new \Exception("Invalid Environment");
         }
     }
 
@@ -588,7 +589,7 @@ class Enets2
         if (isset($this->umid)) {
             $request["netsMid"] = $this->umid;
         } else {
-            throw new Exception("umid is mandatory in the payload");
+            throw new \Exception("umid is mandatory in the payload");
         }
         if (isset($this->tid)) {
             $request["tid"] = $this->tid;
@@ -596,43 +597,43 @@ class Enets2
         if (isset($this->submission_mode)) {
             $request["submissionMode"] = $this->submission_mode;
         } else {
-            throw new Exception("submission_mode is mandatory in the payload");
+            throw new \Exception("submission_mode is mandatory in the payload");
         }
         if (isset($this->currency)) {
             $request["currencyCode"] = $this->currency;
         } else {
-            throw new Exception("currency is mandatory in the payload");
+            throw new \Exception("currency is mandatory in the payload");
         }
         if (isset($this->amount)) {
             $request["txnAmount"] = $this->amount;
         } else {
-            throw new Exception("amount is mandatory in the payload");
+            throw new \Exception("amount is mandatory in the payload");
         }
         if (isset($this->merchant_reference)) {
             $request["merchantTxnRef"] = $this->merchant_reference;
         } else {
-            throw new Exception("merchant_reference is mandatory in the payload");
+            throw new \Exception("merchant_reference is mandatory in the payload");
         }
         if (isset($this->transaction_date)) {
             $request["merchantTxnDtm"] = $this->transaction_date;
         } else {
-            throw new Exception("transaction_date is mandatory in the payload");
+            throw new \Exception("transaction_date is mandatory in the payload");
         }
         if (isset($this->time_zone)) {
             $request["merchantTimeZone"] = $this->time_zone;
         } else {
-            throw new Exception("time_zone is mandatory in the payload");
+            throw new \Exception("time_zone is mandatory in the payload");
         }
         if (isset($this->payment_type)) {
             if (isset($this->payment_mode) &&
                     (strcasecmp($this->payment_mode,"DD")==0 || strcasecmp($this->payment_mode,"QR")==0) &&
                     strcasecmp($this->payment_type,"SALE")<>0) {
-                throw new Exception("payment_type value must be set to 'SALE' 
+                throw new \Exception("payment_type value must be set to 'SALE' 
                     for direct debit or qr code payment mode");
             }
             $request["paymentType"] = $this->payment_type;
         } else {
-            throw new Exception("payment_type is mandatory in the payload");
+            throw new \Exception("payment_type is mandatory in the payload");
         }
         if (isset($this->payment_mode)) {
             $request["paymentMode"] = $this->payment_mode;
@@ -641,7 +642,7 @@ class Enets2
             $request["b2sTxnEndURL"] = $this->return_url;
         } else {
             if (isset($this->submission_mode) && strcasecmp($this->submission_mode,"B")==0) {
-                throw new Exception("return_url is mandatory in the payload for non server to server submission type");
+                throw new \Exception("return_url is mandatory in the payload for non server to server submission type");
             }
         }
         if (isset($this->return_url_param)) {
@@ -651,7 +652,7 @@ class Enets2
             $request["s2sTxnEndURL"] = $this->notify_url;
         } else {
             if (isset($this->submission_mode) && strcasecmp($this->submission_mode,"B")==0) {
-                throw new Exception("notify_url is mandatory in the payload for non server to server submission type");
+                throw new \Exception("notify_url is mandatory in the payload for non server to server submission type");
             }
         }
         if (isset($this->notify_url_param)) {
@@ -661,7 +662,7 @@ class Enets2
             $request["clientType"] = $this->client_type;
         } else {
             if (isset($this->submission_mode) && strcasecmp($this->submission_mode,"B")==0) {
-                throw new Exception("client_type is mandatory in the payload for non server to server submission type");
+                throw new \Exception("client_type is mandatory in the payload for non server to server submission type");
             }
         }
         if (isset($this->mid_indicator)) {
@@ -671,7 +672,7 @@ class Enets2
             $request["mobileOs"] = $this->mobile_os;
         } else {
             if (isset($this->client_type) && strcasecmp($this->client_type,"S")==0) {
-                throw new Exception("mobile_os is mandatory in the payload for SDK client type");
+                throw new \Exception("mobile_os is mandatory in the payload for SDK client type");
             }
         }
         if (isset($this->ip_address)) {
@@ -685,7 +686,7 @@ class Enets2
         } else {
             if (isset($this->submission_mode) && strcasecmp($this->submission_mode,"S")==0 &&
                     (strcasecmp($this->payment_type,"SALE")==0)) {
-                throw new Exception("cardholder_name is mandatory in the payload 
+                throw new \Exception("cardholder_name is mandatory in the payload 
                     for SALE or AUTH payment type on non server to server submission type");
             }
         }
@@ -694,7 +695,7 @@ class Enets2
         } else {
             if (isset($this->submission_mode) && strcasecmp($this->submission_mode,"S")==0 &&
                     (strcasecmp($this->payment_type,"SALE")==0)) {
-                throw new Exception("pan is mandatory in the payload 
+                throw new \Exception("pan is mandatory in the payload 
                     for SALE or AUTH payment type on non server to server submission type");
             }
         }
@@ -703,7 +704,7 @@ class Enets2
         } else {
             if (isset($this->submission_mode) && strcasecmp($this->submission_mode,"S")==0 &&
                     (strcasecmp($this->payment_type,"SALE")==0)) {
-                throw new Exception("expiry_date is mandatory in the payload 
+                throw new \Exception("expiry_date is mandatory in the payload 
                     for SALE or AUTH payment type on non server to server submission type");
             }
         }
@@ -719,7 +720,7 @@ class Enets2
             if (isset($this->authentication_status) &&
                     (strcasecmp($this->authentication_status,"Y")==0 ||
                      strcasecmp($this->authentication_status,"A")==0)) {
-                throw new Exception("cavv is mandatory in the payload 
+                throw new \Exception("cavv is mandatory in the payload 
                     for successful or attempted 3ds authentication_status");
             }
         }
@@ -738,12 +739,12 @@ class Enets2
         if (isset($this->umid)) {
             $request["netsMid"] = $this->umid;
         } else {
-            throw new Exception("umid is mandatory in the payload");
+            throw new \Exception("umid is mandatory in the payload");
         }
         if (isset($this->merchant_reference)) {
             $request["merchantTxnRef"] = $this->merchant_reference;
         } else {
-            throw new Exception("merchant_reference is mandatory in the payload");
+            throw new \Exception("merchant_reference is mandatory in the payload");
         }
         if (isset($this->mid_indicator)) {
             $request["netsMidIndicator"] = $this->mid_indicator;
@@ -825,7 +826,11 @@ class Enets2
         }
     }
 
-    public function run()
+    /**
+     * @param boolean $output
+     * @return mixed
+     */
+    public function run($output = true)
     {
         if (strcasecmp($this->submission_mode,"B") == 0) {
             // if submission is from browser, generate and submit the HTML form
@@ -857,7 +862,12 @@ class Enets2
             ";
             $result["type"] = "HTML";
             $result["response"] = $this->getInitScript().$htmlform;
-            echo $result["response"];
+
+            if ($output === true) {
+                echo $result["response"];
+            } else {
+                return $result["response"];
+            }
         } else {
             // curl to server to authorize
             // this is for server to server handling
@@ -884,19 +894,19 @@ class Enets2
             if (isset($this->secret_key)) {
                 $calculatedHmac = $this->getHmac($message);
             } else {
-                throw new Exception("secret_key is required to validate the response");
+                throw new \Exception("secret_key is required to validate the response");
             }
             if (isset($_POST["hmac"])) {
                 $hmac = $_POST["hmac"];
             } else {
-                throw new Exception("Missing HMAC in response");
+                throw new \Exception("Missing HMAC in response");
             }
             if (strcasecmp($calculatedHmac,$hmac)<>0) {
-                throw new Exception("HMAC mismatched");
+                throw new \Exception("HMAC mismatched");
             }
             $payload = json_decode($message, true);
         } else {
-            throw new Exception("Missing Message in response");
+            throw new \Exception("Missing Message in response");
         }
         if (!empty($payload["msg"])) {
             $response = $payload["msg"];
@@ -929,7 +939,7 @@ class Enets2
             }
             return $response;
         } else {
-            throw new Exception("Missing MSG element in response. Raw message received: ".$message);
+            throw new \Exception("Missing MSG element in response. Raw message received: ".$message);
             return false;
         }
     }
@@ -942,7 +952,7 @@ class Enets2
             if (isset($this->secret_key)) {
                 $calculatedHmac = $this->getHmac($message);
             } else {
-                throw new Exception("secret_key is required to validate the response");
+                throw new \Exception("secret_key is required to validate the response");
             }
             foreach ($_SERVER as $name => $value) {
                 if (strtoupper(substr($name, 0, 9)) == 'HTTP_HMAC') {
@@ -950,14 +960,14 @@ class Enets2
                 }
             }
             if (!isset($hmac)) {
-                throw new Exception("Missing HMAC in response");
+                throw new \Exception("Missing HMAC in response");
             }
             if (strcasecmp($calculatedHmac,$hmac)<>0) {
-                throw new Exception("HMAC mismatched");
+                throw new \Exception("HMAC mismatched");
             }
             $payload = json_decode($message, true);
         } else {
-            throw new Exception("Missing Message in response");
+            throw new \Exception("Missing Message in response");
         }
         if (!empty($payload["msg"])) {
             $response = $payload["msg"];
@@ -990,7 +1000,7 @@ class Enets2
             }
             return $response;
         } else {
-            throw new Exception("Missing MSG element in response. Raw message received: ".$message);
+            throw new \Exception("Missing MSG element in response. Raw message received: ".$message);
             return false;
         }
     }

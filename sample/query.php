@@ -1,4 +1,7 @@
 <?php
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Nets\Enets2;
 
 if (isset($_POST["refno"])) {
     require "enets2.php";
